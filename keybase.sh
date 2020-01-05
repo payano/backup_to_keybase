@@ -12,7 +12,8 @@ COMMANDS_SZ=${#COMMANDS[@]}
 
 BACKUP_FOLDERS=(
 		"/opt/scripts"
-		"/home/johan/install.txt"
+		"/data/nextcloud/johan"
+		"/data/nextcloud/anna"
 		)
 
 USERNAME="payano"
@@ -79,7 +80,7 @@ start_processes()
 compress_and_store_backup()
 {
 	BACKUP_FILE_NAME="$1"
-	tar -czf ${BACKUP_FILE_NAME} ${BACKUP_FOLDERS[@]} >> /dev/null 2>&1
+	tar -czf ${BACKUP_FILE_NAME} ${BACKUP_FOLDERS[@]} 
 	if [ $? -ne 0 ]
 	then
 		send_message "$(get_time): Error with the tar command.."
